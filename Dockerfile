@@ -15,13 +15,14 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y build-essential git \
     unzip \
-    xorg \
+    xorg xserver-xorg \
     wget \
-    tree \
-    pandoc \
     curl \
-    vim
-RUN apt-get upgrade -y
+    sudo \
+    software-properties-common
+RUN add-apt-repository ppa:webupd8team/java && \
+    apt-get update && apt-get upgrade -y && \
+    apt-get install -y openjdk-8-jdk
 ###############################################################################################
 
 ###############################################################################################
@@ -51,7 +52,7 @@ COPY --from=intermediate /opt/mcr /opt/mcr
 USER root
 RUN mv -v /opt/mcr/v95/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v95/sys/os/glnxa64/libstdc++.so.6.old
 ENV LD_LIBRARY_PATH /opt/mcr/v95/runtime/glnxa64:/opt/mcr/v95/bin/glnxa64:/opt/mcr/v95/sys/os/glnxa64
-ENV XAPPLRESDIR /opt/mcr/v92/X11/app-defaults
+ENV XAPPLRESDIR /opt/mcr/v95/X11/app-defaults
 ###############################################################################################
 
 ###############################################################################################
