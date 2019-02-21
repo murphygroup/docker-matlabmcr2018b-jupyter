@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as intermediate
+FROM ubuntu:18.04 as intermediate
 
 ###############################################################################################
 MAINTAINER Ivan E. Cao-Berg <icaoberg@andrew.cmu.edu>
@@ -54,6 +54,19 @@ RUN mv -v /opt/mcr/v95/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v95/sys/os/glnxa64
 ENV LD_LIBRARY_PATH /opt/mcr/v95/runtime/glnxa64:/opt/mcr/v95/bin/glnxa64:/opt/mcr/v95/sys/os/glnxa64
 ENV XAPPLRESDIR /opt/mcr/v95/X11/app-defaults
 ###############################################################################################
+
+USER root
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get install -y build-essential git \
+    unzip \
+    xorg xserver-xorg \
+    wget \
+    curl \
+    sudo \
+    software-properties-common
+	
+RUN	apt-cache search openjdk*
 
 ###############################################################################################
 # CONFIGURE ENVIRONMENT
