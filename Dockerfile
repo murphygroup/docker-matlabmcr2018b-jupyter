@@ -65,8 +65,9 @@ RUN apt-get install -y build-essential git \
     curl \
     sudo \
     software-properties-common
-	
-RUN	apt-cache search openjdk*
+RUN add-apt-repository ppa:webupd8team/java && \
+        apt-get update && apt-get upgrade -y && \
+        apt-get install -y openjdk-8-jdk
 
 ###############################################################################################
 # CONFIGURE ENVIRONMENT
