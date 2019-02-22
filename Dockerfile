@@ -67,7 +67,8 @@ RUN apt-get install -y build-essential git \
     wget \
     curl \
     sudo \
-    software-properties-common
+    software-properties-common \
+	uuid-runtime
 	
 RUN	add-apt-repository ppa:webupd8team/java && \
     apt-get update && apt-get upgrade -y && \
