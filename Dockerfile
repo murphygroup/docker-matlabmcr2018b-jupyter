@@ -51,6 +51,9 @@ COPY --from=intermediate /opt/mcr /opt/mcr
 # CONFIGURE ENVIRONMENT VARIABLES FOR MCR
 USER root
 RUN mv -v /opt/mcr/v95/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v95/sys/os/glnxa64/libstdc++.so.6.old
+RUN mv -v /opt/mcr/v95/bin/glnxa64/libexpat.so.1 /opt/mcr/v95/bin/glnxa64/libexpat.so.1.backup
+RUN mv -v /opt/mcr/v95/bin/glnxa64/libexpat.so.1.5.0 /opt/mcr/v95/bin/glnxa64/libexpat.so.1.5.0.backup
+
 ENV LD_LIBRARY_PATH /opt/mcr/v95/runtime/glnxa64:/opt/mcr/v95/bin/glnxa64:/opt/mcr/v95/sys/os/glnxa64
 ENV XAPPLRESDIR /opt/mcr/v95/X11/app-defaults
 ###############################################################################################
@@ -66,7 +69,9 @@ RUN apt-get install -y build-essential git \
     sudo \
     software-properties-common
 	
-RUN	apt-cache search openjdk*
+RUN	add-apt-repository ppa:webupd8team/java && \
+    apt-get update && apt-get upgrade -y && \
+    apt-get install -y openjdk-8-jdk
 
 ###############################################################################################
 # CONFIGURE ENVIRONMENT
