@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as intermediate
+FROM ubuntu:16.04 as intermediate
 
 ###############################################################################################
 MAINTAINER Ivan E. Cao-Berg <icaoberg@andrew.cmu.edu>
@@ -22,7 +22,8 @@ RUN apt-get install -y build-essential git \
     software-properties-common
 RUN add-apt-repository ppa:webupd8team/java && \
     apt-get update && apt-get upgrade -y && \
-    apt-get install -y openjdk-8-jdk
+    apt-get install -y openjdk-8-jdk && \
+    which java
 ###############################################################################################
 
 ###############################################################################################
@@ -43,7 +44,7 @@ RUN cd /mcr-install && \
 ###############################################################################################
 
 ###############################################################################################
-FROM jupyter/scipy-notebook
+FROM jupyter/base-notebook:latest
 COPY --from=intermediate /opt/mcr /opt/mcr
 ###############################################################################################
 
