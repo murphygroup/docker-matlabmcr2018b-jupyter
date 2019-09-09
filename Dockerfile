@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as intermediate
+FROM ubuntu:18.04 as intermediate
 
 ###############################################################################################
 MAINTAINER Ivan E. Cao-Berg <icaoberg@andrew.cmu.edu>
@@ -46,6 +46,34 @@ RUN cd /mcr-install && \
 ###############################################################################################
 FROM jupyter/base-notebook:latest
 COPY --from=intermediate /opt/mcr /opt/mcr
+
+# Install Python 3 packages
+RUN conda install --quiet --yes \
+    'beautifulsoup4=4.8.*' \
+    'conda-forge::blas=*=openblas' \
+    'bokeh=1.3*' \
+    'cython=0.29*' \
+    'dill=0.3*' \
+    'h5py=2.9*' \
+    'hdf5=1.10*' \
+    'ipywidgets=7.5*' \
+    'matplotlib-base=3.1.*' \
+    'numba=0.45*' \
+    'numexpr=2.6*' \
+    'pandas=0.25*' \
+    'patsy=0.5*' \
+    'scikit-image=0.15*' \
+    'scikit-learn=0.21*' \
+    'scipy=1.3*' \
+    'seaborn=0.9*' \
+    'sqlalchemy=1.3*' \
+    'statsmodels=0.10*' \
+    'sympy=1.4*' \
+    'tabulate' \
+    'vincent=0.4.*' \
+    'xlrd' \
+    && \
+    conda clean --all -f -y
 ###############################################################################################
 
 ###############################################################################################
@@ -70,7 +98,7 @@ RUN apt-get install -y build-essential git \
     sudo \
     software-properties-common \
     uuid-runtime
-	
+
 RUN add-apt-repository ppa:webupd8team/java && \
     apt-get update && apt-get upgrade -y && \
     apt-get install -y openjdk-8-jdk
