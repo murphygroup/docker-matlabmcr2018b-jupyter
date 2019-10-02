@@ -1,10 +1,10 @@
 # docker-matlabmcr2018b-jupyter
 
-[![Build Status](https://travis-ci.org/murphygroup/docker-matlabmcr2018b-jupyter.svg?branch=master)](https://travis-ci.org/icaoberg/docker-matlabmcr2018b-jupyter)
-[![GitHub issues](https://img.shields.io/github/issues/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/icaoberg/docker-matlabmcr2018b-jupyter/issues)
-[![GitHub forks](https://img.shields.io/github/forks/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/icaoberg/docker-matlabmcr2018b-jupyter/network)
-[![GitHub stars](https://img.shields.io/github/stars/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/icaoberg/docker-matlabmcr2018b-jupyter/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://raw.githubusercontent.com/icaoberg/docker-matlabmcr2018b-jupyter/master/LICENSE)
+[![Build Status](https://travis-ci.org/murphygroup/docker-matlabmcr2018b-jupyter.svg?branch=master)](https://travis-ci.org/murphygroup/docker-matlabmcr2018b-jupyter)
+[![GitHub issues](https://img.shields.io/github/issues/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/murphygroup/docker-matlabmcr2018b-jupyter/issues)
+[![GitHub forks](https://img.shields.io/github/forks/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/murphygroup/docker-matlabmcr2018b-jupyter/network)
+[![GitHub stars](https://img.shields.io/github/stars/murphygroup/docker-matlabmcr2018b-jupyter.svg)](https://github.com/murphygroup/docker-matlabmcr2018b-jupyter/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://raw.githubusercontent.com/murphygroup/docker-matlabmcr2018b-jupyter/master/LICENSE)
 
 The [MATLAB Runtime](https://www.mathworks.com/products/compiler/matlab-runtime.html) is a standalone set of shared libraries that enables the execution of compiled MATLAB applications or components on computers that do not have MATLAB installed. When used together, MATLAB, MATLAB Compiler, and the MATLAB Runtime enable you to create and distribute numerical applications or software components quickly and securely.
 
